@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-My friend and I follow this awesome run in Melbourne, Australia. It would be equally good as a bike ride. The trail is mainly off road on walking and cycling tracks.
+My friend and I follow this awesome run in Melbourne, Australia. This route would be equally good as a bike ride. The trail is mainly off road on walking and cycling tracks.
 
 See the map for major path changes, coffee stops and sights to explore.
 
