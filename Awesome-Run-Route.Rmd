@@ -16,7 +16,7 @@ See the map for major path changes, coffee stops and sights to explore.
 
 These directions are set up anticlockwise but could equally be done the other way.
 
-Click in a site to see a description and tips.
+Click on the pins to see a description and tips.
 
 
 ```{r, echo=FALSE, message=FALSE}
