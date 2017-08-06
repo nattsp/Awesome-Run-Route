@@ -9,22 +9,29 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+My friend and I follow this awesome run in Melbourne, Australia. It would be equally good as a bike ride. The trail is mainly off road on walking and cycling tracks.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+See the map for major path changes, coffee stops and sights to explore.
 
-```{r cars}
-summary(cars)
+These directions are set up anticlockwise but could equally be done the other way.
+
+Click in a site to see a description and tips.
+
+
+```{r, echo=FALSE, message=FALSE}
+library(leaflet)
+library(dplyr)
+df <- data.frame(lat = c(-37.805454, -37.80338, -37.796241, -37.790117, -37.785639, -37.783199, -37.780036, -37.779956, -37.784979, -37.802999, -37.805337),
+                 lng = c(144.999017, 145.005748, 145.000217, 145.006614, 144.997984, 144.992164, 144.977438, 144.962581, 144.963294, 144.973303, 144.973507))
+SiteNames <- c("Collins Bridge", "Collingwood Children's farm", "Dights Falls Reserve", "Merri Creek Labyrinth", "Low bridge across Merri Creek", "Capital City Train - Merri", "Creek Trail", "Green Park Café", "Princes Park", "Macpherson St", "Melbourne Museum", "Gertrude Street")
+Description <- c("Pretty bridge across the Yarra river", "Look at the horses and goats at the Children's farm", "Stand on the observation platform and look at Dights falls", "Take time following the circle labyrinth", "Enjoy the low bridge but watch out when the river is high", "Jump between the Capital City Trail and Merri Creek", "Trail at Rushall Station", "Stop for a coffee while you watch the kids play in the playground", "Jump off the Capital trail and do a lap of Princes Park", "Jump", "off Princes Park and head down Macpherson St to Canning St and take a right", "Admire the Melbourne Museum as you run through the park", "Time for some window shopping down Gertrude Street")
+my_map <- df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(label = SiteNames,
+             labelOptions = labelOptions(noHide = T),
+             popup = Description)
+
+my_map
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
